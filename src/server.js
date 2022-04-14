@@ -5,6 +5,10 @@ import webRoutes from "./routes/web";
 
 let app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
+
+
 //config view Engine
 viewEngine(app);
 
