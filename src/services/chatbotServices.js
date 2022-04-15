@@ -34,7 +34,7 @@ let handleGetStarted = () => {
     return Promise(async (resolve, reject) => {
         try {
             let response = { text: "OK. Welcome to IU Lib System" };
-            await this.callSendAPI(response);
+            await callSendAPI(response);
             resolve('done');
         }catch(e) {
             reject(e);
