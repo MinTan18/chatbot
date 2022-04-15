@@ -1,7 +1,8 @@
 require("dotenv").config();
+import res from "express/lib/response";
 import request from "request";
 
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 //process.env.NAME.VARIABLES
 let getHomePage = (req, res) => {
@@ -118,12 +119,21 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === "yes") {
-    response = { text: "Thanks!" };
-  } else if (payload === "no") {
-    response = { text: "Oops, try sending another image." };
-  }else if (payload === "GET_STARTED") {
-    response = {"text": "OK, Welcome to IU Lib System"}
+  switch (payload) {
+    case "yes":
+      response = { text: "Thanks" };
+      break;
+    case "no":
+      response = { text: "Oh no, try sending another image" };
+      break;
+
+    case "GET_STARTED":
+      response = { text: "OK. Welcome to IU Lib System" };
+      break;
+    default:
+      response = {
+        text: `Opps! I dont know response with postback ${payload}`,
+      };
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
@@ -161,8 +171,8 @@ let setupProfile = async (req, res) => {
   // call profile facebook API
   // Construct the message body
   let request_body = {
-    "get_started" : {"payload": "GET_STARTED"},
-    "whitelisted_domains" : ["https://chatbot-demo2-prethesis.herokuapp.com/"]
+    get_started: { payload: "GET_STARTED" },
+    whitelisted_domains: ["https://chatbot-demo2-prethesis.herokuapp.com/"],
   };
 
   // Send the HTTP request to the Messenger Platform
@@ -183,8 +193,7 @@ let setupProfile = async (req, res) => {
     }
   );
 
-    return res.send("Setup succeeds")
-
+  return res.send("Setup succeeds");
 };
 
 module.exports = {
