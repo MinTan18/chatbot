@@ -39,15 +39,14 @@ let getUserName =  (sender_psid) => {
               method: "GET",
             },
             (err, res, body) => {
-              console.log(body);
               if (!err) {
                 response = JSON.parse(body);
                 let username = `${body.first_name} ${body.last_name}`;
         
-                console.log("message sent!");
                 resolve(username);
               } else {
                 console.error("Unable to send message:" + err);
+                reject(err);
               }
             }
           );
