@@ -35,8 +35,8 @@ let getUserName =  (sender_psid) => {
     return new Promise((resolve, reject) => {
         request(
             {
-              "uri": `https://graph.facebook.com/${sender_psid}?fields=first_name,last_name,profile_pic&access_token=${PAGE_ACCESS_TOKEN}`,
-              "method": "GET",
+              uri: `https://graph.facebook.com/${sender_psid}?fields=first_name,last_name,profile_pic&access_token=${PAGE_ACCESS_TOKEN}`,
+              method: "GET",
             },
             (err, res, body) => {
               console.log(body);
