@@ -31,7 +31,7 @@ let callSendAPI = (sender_psid ,response) => {
   );
 };
 let handleGetStarted = (sender_psid) => {
-    return Promise(async (resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
             let response = { text: "OK. Welcome to IU Lib System" };
             await callSendAPI(sender_psid, response);
