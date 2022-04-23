@@ -112,11 +112,11 @@ let getGetStartedTemplate = () => {
   return response;
 }
 
-let handleSendOrderBooks = (sender_psid) => {
+let handleSendAbout = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
         
-        let response1 = getOrderBooksTemplate();
+        let response1 = getAboutTemplate();
 
         //  send text message
       await callSendAPI(sender_psid, response1);
@@ -128,7 +128,7 @@ let handleSendOrderBooks = (sender_psid) => {
   });
 }
 
-let getOrderBooksTemplate = () => {
+let getAboutTemplate = () => {
   let response = {
     attachment: {
       type: "template",
@@ -184,5 +184,5 @@ let getOrderBooksTemplate = () => {
 }
 module.exports = {
   handleGetStarted: handleGetStarted,
-  handleSendOrderBooks: handleSendOrderBooks,
+  handleSendAbout: handleSendAbout,
 };
