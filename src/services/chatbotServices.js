@@ -91,7 +91,7 @@ let getStartedTemplate = () => {
               {
                 type: "postback",
                 title: "ABOUT US",
-                payload: "ABOUT",
+                payload: "A",
               },
               {
                 type: "postback",
@@ -180,6 +180,7 @@ let getAboutTemplate = () => {
       },
     },
   };
+  return response
 }
 module.exports = {
   handleGetStarted: handleGetStarted,
