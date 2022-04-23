@@ -61,7 +61,7 @@ let handleGetStarted = (sender_psid) => {
     try {
         let username = await getUserName(sender_psid)
         let response1 = { "text": `OK. Welcome ${username} to IU Lib System` };
-        let response2 = getGetStartedTemplate();
+        let response2 = getStartedTemplate();
 
         //  send text message
       await callSendAPI(sender_psid, response1);
@@ -76,7 +76,7 @@ let handleGetStarted = (sender_psid) => {
   });
 };
 
-let getGetStartedTemplate = () => {
+let getStartedTemplate = () => {
   let response = {
     attachment: {
       type: "template",
@@ -116,9 +116,7 @@ let handleSendAbout = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
         
-        let response1 = getAboutTemplate();
-
-        //  send text message
+      let response1 = getAboutTemplate();
       await callSendAPI(sender_psid, response1);
 
       resolve("done");

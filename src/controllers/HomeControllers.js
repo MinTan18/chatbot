@@ -138,9 +138,7 @@ async function handlePostback(sender_psid, received_postback) {
       await chatbotServices.handleSendAbout(sender_psid);
       break;
 
-
-    
-    default:
+      default:
       response = {
         text: `Opps! I dont know response with postback ${payload}`,
       };
