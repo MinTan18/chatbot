@@ -61,7 +61,7 @@ let handleGetStarted = (sender_psid) => {
     try {
         let username = await getUserName(sender_psid)
         let response1 = { "text": `OK. Welcome ${username} to IU Lib System` };
-        let response2 = sendGetStartedTemplate();
+        let response2 = getGetStartedTemplate();
 
         //  send text message
       await callSendAPI(sender_psid, response1);
@@ -76,7 +76,7 @@ let handleGetStarted = (sender_psid) => {
   });
 };
 
-let sendGetStartedTemplate = () => {
+let getGetStartedTemplate = () => {
   let response = {
     attachment: {
       type: "template",
@@ -90,8 +90,8 @@ let sendGetStartedTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "FIND SOME BOOKS",
-                payload: "FIND BOOKS",
+                title: "ABOUT US",
+                payload: "ABOUT",
               },
               {
                 type: "postback",
@@ -112,6 +112,77 @@ let sendGetStartedTemplate = () => {
   return response;
 }
 
+let handleSendOrderBooks = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+        
+        let response1 = getOrderBooksTemplate();
+
+        //  send text message
+      await callSendAPI(sender_psid, response1);
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+
+let getOrderBooksTemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "ABOUT",
+            subtitle: "This Chatbot helps you have a good experience on using Online Library System",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "FIND SOME BOOKS",
+                payload: "FIND BOOKS",
+              },
+              {
+                type: "postback",
+                title: "ORDER",
+                payload: "ORDER",
+              },
+              
+            ],
+          },
+          {
+            title: "WORKING HOURS",
+            subtitle: "MON-FRI 9AM - 10PM | SAT 7AM - 7PM | SUN 10AM - 6PM",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "ORDER",
+                payload: "ORDER",
+              },
+            ],
+          },
+          {
+            title: "LIBRARY SPACES",
+            subtitle: "Here are some spaces for readers",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "DETAIL",
+                payload: "SHOW_ROOMS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+}
 module.exports = {
   handleGetStarted: handleGetStarted,
+  handleSendOrderBooks: handleSendOrderBooks,
 };
