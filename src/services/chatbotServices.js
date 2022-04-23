@@ -101,7 +101,7 @@ let getStartedTemplate = () => {
               {
                 type: "postback",
                 title: "GUIDE TO USE BOT!",
-                payload: "GUIDE TO USE",
+                payload: "GUIDE_TO_USE",
               }
             ],
           },
@@ -112,7 +112,7 @@ let getStartedTemplate = () => {
   return response;
 }
 
-let handleSendAbout = (sender_psid) => {
+let handleSendAbout = async (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
         
@@ -128,25 +128,25 @@ let handleSendAbout = (sender_psid) => {
 
 let getAboutTemplate = () => {
   let response = {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "generic",
-        "elements": [
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
           {
-            "title": "ABOUT US",
-            "subtitle": "This Chatbot helps you have a good experience on using Online Library System",
-            "image_url": IMAGE_GET_STARTED,
-            "buttons": [
+            title: "ABOUT US",
+            subtitle: "This Chatbot helps you have a good experience on using Online Library System",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
               {
-                "type": "postback",
-                "title": "FIND SOME BOOKS",
-                "payload": "FIND BOOKS",
+                type: "postback",
+                title: "FIND SOME BOOKS",
+                payload: "FIND_BOOKS",
               },
               {
-                "type": "postback",
-                "title": "ORDER",
-                "payload": "ORDER",
+                type: "postback",
+                title: "ORDER",
+                payload: "ORDER",
               },
               
             ],
