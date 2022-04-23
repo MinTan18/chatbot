@@ -118,6 +118,7 @@ let handleSendAbout = async (sender_psid) => {
         
       let response1 = getAboutTemplate();
       await callSendAPI(sender_psid, response1);
+      console.log("successful");
 
       resolve("done");
     } catch (e) {
