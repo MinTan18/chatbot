@@ -1,7 +1,7 @@
 require("dotenv").config();
 import res from "express/lib/response";
 import request from "request";
-import chatbotServices from "../services/chatbotServices"
+import chatbotServices from "../services/chatbotServices";
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
@@ -121,24 +121,28 @@ async function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   switch (payload) {
-    case 'yes':
+    case "yes":
       response = { text: "Thanks" };
       break;
 
-    case 'no':
+    case "no":
       response = { text: "Oh no, try sending another image" };
       break;
 
-    case 'RESTART_BOT':
-    case 'GET_STARTED':
+    case "RESTART_BOT":
+    case "GET_STARTED":
       await chatbotServices.handleGetStarted(sender_psid);
       break;
 
-    case 'A':
+    case "A":
       await chatbotServices.handleSendAbout(sender_psid);
       break;
 
-      default:
+    case "FIND_BOOKS":
+      await chatbotServices.handleFindBooks(sender_psid);
+      break;
+
+    default:
       response = {
         text: `Opps! I dont know response with postback ${payload}`,
       };
@@ -179,17 +183,17 @@ let setupProfile = async (req, res) => {
   // call profile facebook API
   // Construct the message body
   let request_body = {
-    "get_started": { "payload": "GET_STARTED" },
-    "whitelisted_domains": ["https://chatbot-demo2-prethesis.herokuapp.com/"],
+    get_started: { payload: "GET_STARTED" },
+    whitelisted_domains: ["https://chatbot-demo2-prethesis.herokuapp.com/"],
   };
 
   // Send the HTTP request to the Messenger Platform
   await request(
     {
-      "uri": `https://graph.facebook.com/v13.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
-      "qs": { access_token: PAGE_ACCESS_TOKEN },
-      "method": "POST",
-      "json": request_body,
+      uri: `https://graph.facebook.com/v13.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
     },
     (err, res, body) => {
       if (!err) {
@@ -204,42 +208,42 @@ let setupProfile = async (req, res) => {
   return res.send("Setup succeeds");
 };
 
-
-
 let setupPersistentMenu = async (req, res) => {
   let request_body = {
-    "persistent_menu": [
+    persistent_menu: [
       {
-          "locale": "default",
-          "composer_input_disabled": false,
-          "call_to_actions": [
-              {
-                  "type": "web_url",
-                  "title": "VNU Library System",
-                  "url": "https://www.youtube.com/", "webview_height_ratio": "full"
-              },
-              {
-                  "type": "web_url",
-                  "title": "IU website",
-                  "url": "https://www.facebook.com/", "webview_height_ratio": "full"
-              },
-              {
-                  "type": "postback",
-                  "title": "Restart bot",
-                  "payload": "RESTART_BOT"
-              }
-          ]
-      }
-  ]
+        locale: "default",
+        composer_input_disabled: false,
+        call_to_actions: [
+          {
+            type: "web_url",
+            title: "VNU Library System",
+            url: "https://www.youtube.com/",
+            webview_height_ratio: "full",
+          },
+          {
+            type: "web_url",
+            title: "IU website",
+            url: "https://www.facebook.com/",
+            webview_height_ratio: "full",
+          },
+          {
+            type: "postback",
+            title: "Restart bot",
+            payload: "RESTART_BOT",
+          },
+        ],
+      },
+    ],
   };
 
   // Send the HTTP request to the Messenger Platform
   await request(
     {
-      "uri": `https://graph.facebook.com/v13.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
-      "qs": { "access_token": PAGE_ACCESS_TOKEN },
-      "method": "POST",
-      "json": request_body,
+      uri: `https://graph.facebook.com/v13.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
     },
     (err, res, body) => {
       if (!err) {
@@ -252,12 +256,12 @@ let setupPersistentMenu = async (req, res) => {
   );
 
   return res.send("Setup persistent succeeds");
-}
+};
 
 module.exports = {
   getHomePage: getHomePage,
   getWebhook: getWebhook,
   postWebhook: postWebhook,
   setupProfile: setupProfile,
-  setupPersistentMenu: setupPersistentMenu
+  setupPersistentMenu: setupPersistentMenu,
 };

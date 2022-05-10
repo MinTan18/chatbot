@@ -5,6 +5,11 @@ require("dotenv").config();
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 const IMAGE_GET_STARTED = 'https://bit.ly/3Mk4tsS'
+const IMAGE_ABOUT_US = 'https://bit.ly/3wiHxUz'
+const IMAGE_SPACES = 'https://bit.ly/3P9XvJk'
+const IMAGE_WORKING_HOURS = 'https://bit.ly/3M4unRQ'
+
+
 
 let callSendAPI = (sender_psid, response) => {
   // Construct the message body
@@ -86,7 +91,7 @@ let getStartedTemplate = () => {
           {
             title: "Welcome to IU Library System",
             subtitle: "Here are some choices",
-            image_url: IMAGE_GET_STARTED,
+            image_url: IMAGE_ABOUT_US,
             buttons: [
               {
                 type: "postback",
@@ -167,6 +172,62 @@ let getAboutTemplate = () => {
           {
             title: "LIBRARY SPACES",
             subtitle: "Here are some spaces for readers",
+            image_url: IMAGE_SPACES,
+            buttons: [
+              {
+                type: "postback",
+                title: "DETAIL",
+                payload: "SHOW_ROOMS",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response
+}
+
+let getFindBooksTemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "FIND SOME BOOKS",
+            subtitle: "This help you on your study",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "What is your Department?",
+                payload: "DEPARTMENT",
+              },
+              {
+                type: "postback",
+                title: "Go Back",
+                payload: "ORDER",
+              },
+              
+            ],
+          },
+          {
+            title: "WORKING HOURS",
+            subtitle: "MON-FRI 9AM - 10PM | SAT 7AM - 7PM | SUN 10AM - 6PM",
+            image_url: IMAGE_WORKING_HOURS,
+            buttons: [
+              {
+                type: "postback",
+                title: "ORDER",
+                payload: "ORDER",
+              },
+            ],
+          },
+          {
+            title: "LIBRARY SPACES",
+            subtitle: "Here are some spaces for readers",
             image_url: IMAGE_GET_STARTED,
             buttons: [
               {
@@ -182,7 +243,26 @@ let getAboutTemplate = () => {
   };
   return response
 }
+
+let handleFindBooks = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+        
+      let response1 = getFindBooksTemplate();
+      await callSendAPI(sender_psid, response1);
+      console.log("successful");
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+
+
+
 module.exports = {
   handleGetStarted: handleGetStarted,
   handleSendAbout: handleSendAbout,
+  handleFindBooks: handleFindBooks,
 };
