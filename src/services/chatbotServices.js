@@ -8,6 +8,7 @@ const IMAGE_GET_STARTED = 'https://bit.ly/3Mk4tsS'
 const IMAGE_ABOUT_US = 'https://bit.ly/3wiHxUz'
 const IMAGE_SPACES = 'https://bit.ly/3P9XvJk'
 const IMAGE_WORKING_HOURS = 'https://bit.ly/3M4unRQ'
+const IMAGE_DEPARTMENT = 'https://bit.ly/38ew6W6'
 
 
 
@@ -100,8 +101,8 @@ let getStartedTemplate = () => {
               },
               {
                 type: "postback",
-                title: "ORDER",
-                payload: "ORDER",
+                title: "FIND_BOOKS",
+                payload: "FIND_BOOKS",
               },
               {
                 type: "postback",
@@ -196,15 +197,10 @@ let getFindBooksTemplate = () => {
         template_type: "generic",
         elements: [
           {
-            title: "FIND SOME BOOKS",
-            subtitle: "This help you on your study",
-            image_url: IMAGE_GET_STARTED,
+            title: "WHAT IS YOUR DEPARTMENT?",
+            subtitle: "SWIPE TO CHOSE",
+            image_url: IMAGE_DEPARTMENT,
             buttons: [
-              {
-                type: "postback",
-                title: "What is your Department?",
-                payload: "DEPARTMENT",
-              },
               {
                 type: "postback",
                 title: "Go Back",
@@ -214,26 +210,98 @@ let getFindBooksTemplate = () => {
             ],
           },
           {
-            title: "WORKING HOURS",
-            subtitle: "MON-FRI 9AM - 10PM | SAT 7AM - 7PM | SUN 10AM - 6PM",
+            title: "BUSINESS ADMINISTRATION",
+            subtitle: "BA",
             image_url: IMAGE_WORKING_HOURS,
             buttons: [
               {
                 type: "postback",
-                title: "ORDER",
-                payload: "ORDER",
+                title: "GO TO",
+                payload: "GO_TO_BA",
               },
             ],
           },
           {
-            title: "LIBRARY SPACES",
-            subtitle: "Here are some spaces for readers",
+            title: "LOGISTIC",
+            subtitle: "IEM",
             image_url: IMAGE_GET_STARTED,
             buttons: [
               {
                 type: "postback",
-                title: "DETAIL",
-                payload: "SHOW_ROOMS",
+                title: "GO TO",
+                payload: "GO_TO_IEM",
+              },
+            ],
+          },
+          {
+            title: "BIO TECHNOLOGY",
+            subtitle: "BT",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO TO",
+                payload: "GO_TO_BT",
+              },
+            ],
+          },
+          {
+            title: "INFORMATION TECHNOLOGY",
+            subtitle: "IT",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO TO",
+                payload: "GO_TO_IT",
+              },
+            ],
+          },
+          {
+            title: "CIVIL ENGINEERING",
+            subtitle: "CE",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO TO",
+                payload: "GO_TO_CE",
+              },
+            ],
+          },
+          {
+            title: "ELECTRICAL ENGINEERING",
+            subtitle: "EE",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO TO",
+                payload: "GO_TO_EE",
+              },
+            ],
+          },
+          {
+            title: "BIOMEDICAL ENGINEERING",
+            subtitle: "BME",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO TO",
+                payload: "GO_TO_BME",
+              },
+            ],
+          },
+          {
+            title: "ENVIRONMENTAL ENGINEERING",
+            subtitle: "EV",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO TO",
+                payload: "GO_TO_EV",
               },
             ],
           },

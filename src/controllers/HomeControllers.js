@@ -135,6 +135,7 @@ async function handlePostback(sender_psid, received_postback) {
       break;
 
     case "A":
+    case "ORDER":
       await chatbotServices.handleSendAbout(sender_psid);
       break;
 
