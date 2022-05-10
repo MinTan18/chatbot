@@ -160,7 +160,7 @@ let getAboutTemplate = () => {
           {
             title: "WORKING HOURS",
             subtitle: "MON-FRI 9AM - 10PM | SAT 7AM - 7PM | SUN 10AM - 6PM",
-            image_url: IMAGE_GET_STARTED,
+            image_url: IMAGE_WORKING_HOURS,
             buttons: [
               {
                 type: "postback",
