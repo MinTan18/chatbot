@@ -365,7 +365,7 @@ let goBA = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
         
-      let response1 = getFindBooksTemplate();
+      let response1 = getBATemplate();
       await callSendAPI(sender_psid, response1);
       console.log("successful");
 
