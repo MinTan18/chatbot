@@ -339,25 +339,7 @@ let getBATemplate = () => {
             subtitle: "Chose your correct level",
             image_url: IMAGE_GET_STARTED,
             buttons: [
-              {
-                type: "postback",
-                title: "FRESHMAN",
-                payload: "BA_FRESHMAN",
-              },
-              {
-                type: "postback",
-                title: "2ND-YEAR",
-                payload: "BA_2ND",
-              },{
-                type: "postback",
-                title: "3RD-YEAR",
-                payload: "BA_3RD",
-              },
-              // {
-              //   type: "postback",
-              //   title: "SENIOR",
-              //   payload: "BA_SENIOR",
-              // },
+              
               
             ]
           },
