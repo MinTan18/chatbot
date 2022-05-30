@@ -353,14 +353,19 @@ let getBATemplate = () => {
                 title: "3RD-YEAR",
                 payload: "BA_3RD",
               },
-              {
-                type: "postback",
-                title: "SENIOR",
-                payload: "BA_SENIOR",
-              }
+              // {
+              //   type: "postback",
+              //   title: "SENIOR",
+              //   payload: "BA_SENIOR",
+              // }
               
-            ]}]}}}
-          return response
+            ]
+          }
+        ]
+      },
+    }
+  };
+  return response
         }
 
 let goBA = (sender_psid) => {
