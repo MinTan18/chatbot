@@ -143,6 +143,10 @@ async function handlePostback(sender_psid, received_postback) {
       await chatbotServices.handleFindBooks(sender_psid);
       break;
 
+    case "GO_TO_BA":
+      await chatbotServices.goBA(sender_psid);
+      break;
+
     default:
       response = {
         text: `Opps! I dont know response with postback ${payload}`,

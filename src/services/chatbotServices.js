@@ -216,7 +216,7 @@ let getFindBooksTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "GO TO",
+                title: "GO",
                 payload: "GO_TO_BA",
               },
             ],
@@ -228,7 +228,7 @@ let getFindBooksTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "GO TO",
+                title: "GO",
                 payload: "GO_TO_IEM",
               },
             ],
@@ -240,7 +240,7 @@ let getFindBooksTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "GO TO",
+                title: "GO",
                 payload: "GO_TO_BT",
               },
             ],
@@ -252,7 +252,7 @@ let getFindBooksTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "GO TO",
+                title: "GO",
                 payload: "GO_TO_IT",
               },
             ],
@@ -264,7 +264,7 @@ let getFindBooksTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "GO TO",
+                title: "GO",
                 payload: "GO_TO_CE",
               },
             ],
@@ -276,7 +276,7 @@ let getFindBooksTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "GO TO",
+                title: "GO",
                 payload: "GO_TO_EE",
               },
             ],
@@ -288,7 +288,7 @@ let getFindBooksTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "GO TO",
+                title: "GO",
                 payload: "GO_TO_BME",
               },
             ],
@@ -300,7 +300,7 @@ let getFindBooksTemplate = () => {
             buttons: [
               {
                 type: "postback",
-                title: "GO TO",
+                title: "GO",
                 payload: "GO_TO_EV",
               },
             ],
@@ -327,10 +327,61 @@ let handleFindBooks = (sender_psid) => {
   });
 }
 
+let getBATemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "What is your level?",
+            subtitle: "Chose your correct level",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "FRESHMAN",
+                payload: "BA_FRESHMAN",
+              },
+              {
+                type: "postback",
+                title: "2ND-YEAR",
+                payload: "BA_2ND",
+              },{
+                type: "postback",
+                title: "3RD-YEAR",
+                payload: "BA_3RD",
+              },
+              {
+                type: "postback",
+                title: "SENIOR",
+                payload: "BA_SENIOR",
+              }
+              
+            ]}]}}}}
+
+let goBA = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+        
+      let response1 = getFindBooksTemplate();
+      await callSendAPI(sender_psid, response1);
+      console.log("successful");
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+
 
 
 module.exports = {
   handleGetStarted: handleGetStarted,
   handleSendAbout: handleSendAbout,
   handleFindBooks: handleFindBooks,
+  goBA: goBA,
+
 };
