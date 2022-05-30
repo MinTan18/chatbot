@@ -353,14 +353,62 @@ let getBATemplate = () => {
                 title: "3RD-YEAR",
                 payload: "BA_3RD",
               },
-              {
-                type: "postback",
-                title: "SENIOR",
-                payload: "BA_SENIOR",
-              },
+              // {
+              //   type: "postback",
+              //   title: "SENIOR",
+              //   payload: "BA_SENIOR",
+              // },
               
             ]
-          }
+          },
+          {
+            title: "FRESHMAN",
+            subtitle: "First year",
+            image_url: IMAGE_WORKING_HOURS,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO",
+                payload: "BA_1ST",
+              },
+            ],
+          },
+          {
+            title: "2ND-YEAR",
+            subtitle: "OLDER",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO",
+                payload: "BA_2ND",
+              },
+            ],
+          },
+          {
+            title: "3RD-YEAR",
+            subtitle: "VERY OLD",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO",
+                payload: "BA_3RD",
+              },
+            ],
+          },
+          {
+            title: "SENIOR",
+            subtitle: ":)",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO",
+                payload: "BA_4TH",
+              },
+            ],
+          },
         ]
       },
     }
