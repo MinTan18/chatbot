@@ -359,7 +359,9 @@ let getBATemplate = () => {
                 payload: "BA_SENIOR",
               }
               
-            ]}]}}}}
+            ]}]}}}
+          return response
+        }
 
 let goBA = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
