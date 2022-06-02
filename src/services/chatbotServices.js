@@ -619,5 +619,6 @@ module.exports = {
   handleSendAbout: handleSendAbout,
   handleFindBooks: handleFindBooks,
   goBA: goBA,
+  goBA1ST:goBA1ST,
 
 };
