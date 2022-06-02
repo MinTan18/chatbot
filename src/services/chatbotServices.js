@@ -420,7 +420,7 @@ let getBATemplate = () => {
                 payload: "ORDER",
               },
               {
-                type: "web-url",
+                type: "web_url",
                 url: `${process.env.URL_WEB_VIEW_ORDER}`,
                 title: "ORDER",
                 webview_height_ratio: "tall",
