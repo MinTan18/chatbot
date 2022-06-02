@@ -509,7 +509,7 @@ let getBA1STTemplate = () => {
             buttons: [
               {
                 type: "web-url",
-                url: `${process.env.URL_WEB_VIEW_ORDER}`,
+                url: "https://chatbot-demo2-prethesis.herokuapp.com/order-book",
                 title: "ORDER",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
