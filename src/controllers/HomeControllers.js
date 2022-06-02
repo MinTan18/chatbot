@@ -152,7 +152,7 @@ async function handlePostback(sender_psid, received_postback) {
       await chatbotServices.goBA1ST(sender_psid);
       break;
 
-      
+
 
     default:
       response = {
@@ -274,6 +274,9 @@ let handleOrderBook = (req, res) => {
   return res.render('reverse-book.ejs');
 }
 
+let handlePostOrderBook = (req, res) => {
+  
+}
 module.exports = {
   getHomePage: getHomePage,
   getWebhook: getWebhook,
@@ -281,4 +284,5 @@ module.exports = {
   setupProfile: setupProfile,
   setupPersistentMenu: setupPersistentMenu,
   handleOrderBook: handleOrderBook,
+  handlePostOrderBook: handlePostOrderBook,
 };

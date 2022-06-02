@@ -507,13 +507,13 @@ let getBA1STTemplate = () => {
             title: "BA-Book1",
             image_url: IMAGE_GET_STARTED,
             buttons: [
-              // {
-              //   type: "web-url",
-              //   url: "https://chatbot-demo2-prethesis.herokuapp.com/order-book",
-              //   title: "ORDER",
-              //   webview_height_ratio: "tall",
-              //   messenger_extensions: true,
-              // },
+              {
+                type: "web-url",
+                url: "https://chatbot-demo2-prethesis.herokuapp.com/order-book",
+                title: "ORDER",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
+              },
               {
                 type: "postback",
                 title: "GO BACK",
