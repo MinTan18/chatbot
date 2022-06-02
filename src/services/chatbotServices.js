@@ -509,7 +509,7 @@ let getBA1STTemplate = () => {
             buttons: [
               {
                 type: "web-url",
-                url: `$(process.env.URL_WEB_VIEW_ORDER)`,
+                url: `${process.env.URL_WEB_VIEW_ORDER}`,
                 title: "ORDER",
                 webview_height_ratio: "tall",
                 messenger_extensions: true,
