@@ -419,13 +419,13 @@ let getBATemplate = () => {
                 title: "ORDER",
                 payload: "ORDER",
               },
-              {
-                type: "web_url",
-                url: `${process.env.URL_WEB_VIEW_ORDER}`,
-                title: "ORDER",
-                webview_height_ratio: "tall",
-                messenger_extensions: true,
-              }
+              // {
+              //   "type": "web_url",
+              //   "url": `${process.env.URL_WEB_VIEW_ORDER}`,
+              //   "title": "ORDER",
+              //   "webview_height_ratio": "tall",
+              //   "messenger_extensions": true,
+              // }
 
             ],
           },
