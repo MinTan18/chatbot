@@ -499,6 +499,119 @@ let goBA = (sender_psid) => {
   });
 }
 
+let getBA1STTemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "BA-Book1",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "ORDER",
+                payload: "ORDER",
+              },
+              {
+                type: "postback",
+                title: "GO BACK",
+                payload: "GO_TO_BA",
+              },
+              
+            ]
+          },
+          {
+            title: "FRESHMAN",
+            subtitle: "First year",
+            image_url: IMAGE_WORKING_HOURS,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO",
+                payload: "BA_1ST",
+              },
+              {
+                type: "postback",
+                title: "ORDER",
+                payload: "ORDER",
+              },
+            ],
+          },
+          {
+            title: "2ND-YEAR",
+            subtitle: "OLDER",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO",
+                payload: "BA_2ND",
+              },
+              {
+                type: "postback",
+                title: "ORDER",
+                payload: "ORDER",
+              },
+            ],
+          },
+          {
+            title: "3RD-YEAR",
+            subtitle: "VERY OLD",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO",
+                payload: "BA_3RD",
+              },
+              {
+                type: "postback",
+                title: "ORDER",
+                payload: "ORDER",
+              },
+            ],
+          },
+          {
+            title: "SENIOR",
+            subtitle: ":)",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "GO",
+                payload: "BA_4TH",
+              },
+              {
+                type: "postback",
+                title: "ORDER",
+                payload: "ORDER",
+              },
+            ],
+          },
+        ]
+      },
+    }
+  };
+  return response
+        }
+
+let goBA1ST = (sender_psid) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+        
+      let response1 = getBA1STTemplate();
+      await callSendAPI(sender_psid, response1);
+      console.log("successful");
+
+      resolve("done");
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
 
 
 module.exports = {

@@ -1,5 +1,5 @@
 require("dotenv").config();
-import res from "express/lib/response";
+import res, { send } from "express/lib/response";
 import request from "request";
 import chatbotServices from "../services/chatbotServices";
 
@@ -145,6 +145,10 @@ async function handlePostback(sender_psid, received_postback) {
 
     case "GO_TO_BA":
       await chatbotServices.goBA(sender_psid);
+      break;
+    
+    case "BA_1ST":
+      await chatbotServices.goBA1ST(sender_psid);
       break;
 
     default:
