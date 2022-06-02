@@ -422,8 +422,8 @@ let getBATemplate = () => {
                {
               "type": "web_url",
               "title": "Shop now",
-              "url": "https://chatbot-demo2-https://chatbot-demo2-prethesis.herokuapp.com/order-book",
-              "webview_height_ratio": "full"
+              "url": `${process.env.URL_WEB_VIEW_ORDER}`,
+              "webview_height_ratio": "tall"
                }
 
             ],
