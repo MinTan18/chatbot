@@ -419,12 +419,7 @@ let getBATemplate = () => {
                 title: "ORDER",
                 payload: "ORDER",
               },
-               {
-              "type": "web_url",
-              "title": "Shop now",
-              "url": `${process.env.URL_WEB_VIEW_ORDER}`,
-              "webview_height_ratio": "tall"
-               }
+              
 
             ],
           },
