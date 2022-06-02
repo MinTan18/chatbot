@@ -1,4 +1,5 @@
 require("dotenv").config();
+import req from "express/lib/request";
 import res, { send } from "express/lib/response";
 import request from "request";
 import chatbotServices from "../services/chatbotServices";
@@ -135,7 +136,7 @@ async function handlePostback(sender_psid, received_postback) {
       break;
 
     case "A":
-    case "ORDER":
+    case "ABOUT":
       await chatbotServices.handleSendAbout(sender_psid);
       break;
 
@@ -150,6 +151,8 @@ async function handlePostback(sender_psid, received_postback) {
     case "BA_1ST":
       await chatbotServices.goBA1ST(sender_psid);
       break;
+
+      
 
     default:
       response = {
@@ -267,10 +270,15 @@ let setupPersistentMenu = async (req, res) => {
   return res.send("Setup persistent succeeds");
 };
 
+let handleOrderBook = (req, res) => {
+  return res.render('reverse-book.ejs');
+}
+
 module.exports = {
   getHomePage: getHomePage,
   getWebhook: getWebhook,
   postWebhook: postWebhook,
   setupProfile: setupProfile,
   setupPersistentMenu: setupPersistentMenu,
+  handleOrderBook: handleOrderBook,
 };

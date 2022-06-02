@@ -511,9 +511,11 @@ let getBA1STTemplate = () => {
             image_url: IMAGE_GET_STARTED,
             buttons: [
               {
-                type: "postback",
+                type: "web-url",
+                url: `$(process.env.URL_WEB_VIEW_ORDER)`,
                 title: "ORDER",
-                payload: "ORDER",
+                webview_height_ratio: "tall",
+                messenger_extensions: true,
               },
               {
                 type: "postback",
