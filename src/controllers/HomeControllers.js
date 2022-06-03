@@ -274,7 +274,7 @@ let handleOrderBook = (req, res) => {
   return res.render('reverse-book.ejs');
 }
 
-let handlePostOrderBook = (req, res) => {
+let handlePostOrderBook = async (req, res) => {
   try {
     let customerName = "";
     if (req.body.customerName === "") {
