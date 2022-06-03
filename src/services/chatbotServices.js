@@ -512,7 +512,7 @@ let getBA1STTemplate = () => {
                 title: "VNU Library System",
                 url: `${process.env.URL_WEB_VIEW_ORDER}`,
                 webview_height_ratio: "tall",
-                // messenger_extensions: "true"
+                messenger_extensions: "true"
               },
               {
                 type: "postback",
