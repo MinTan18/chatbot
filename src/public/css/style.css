@@ -1,9 +1,9 @@
+/*stick footer to bottom */
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-
 .fix-height {
     flex: 1;
 }
