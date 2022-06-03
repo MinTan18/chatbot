@@ -510,9 +510,9 @@ let getBA1STTemplate = () => {
               {
                 type: "web_url",
                 title: "VNU Library System",
-                url: "https://www.youtube.com/",
+                url: `${process.env.URL_WEB_VIEW_ORDER}`,
                 webview_height_ratio: "tall",
-                // messenger_extensions: true
+                // messenger_extensions: "true"
               },
               {
                 type: "postback",
