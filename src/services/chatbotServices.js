@@ -508,11 +508,10 @@ let getBA1STTemplate = () => {
             image_url: IMAGE_GET_STARTED,
             buttons: [
               {
-                type: "web-url",
-                url: "https://chatbot-demo2-prethesis.herokuapp.com/order-book",
-                title: "ORDER",
-                webview_height_ratio: "tall",
-                messenger_extensions: true,
+                type: "web_url",
+            title: "VNU Library System",
+            url: "https://www.youtube.com/",
+            webview_height_ratio: "full",
               },
               {
                 type: "postback",
