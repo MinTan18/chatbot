@@ -271,7 +271,7 @@ let setupPersistentMenu = async (req, res) => {
 };
 
 let handleOrderBook = (req, res) => {
-  return res.render('reverse-book.ejs');
+  return res.render('reserve-book.ejs');
 }
 
 let handlePostOrderBook = async (req, res) => {
