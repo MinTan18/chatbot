@@ -275,7 +275,30 @@ let handleOrderBook = (req, res) => {
 }
 
 let handlePostOrderBook = (req, res) => {
-  
+  try {
+    let customerName = "";
+    if (req.body.customerName === "") {
+        customerName = "Empty";
+    } else customerName = req.body.customerName;
+
+    // Demo response with sample test
+
+    let response1 = {
+      "text": `---Info Order Information---
+      \nCustomer name: ${customerName}
+      \nEmail address: ${req.body.email}
+      \nPhone number: ${req.body.phoneNumber}
+      `
+    };
+
+    await chatbotServices.callSendAPI(req.body.psid, response1);
+    return res.status(200).json({
+      message: "ok"
+    });
+  } catch (e) {
+    console.log(`error post`, e);
+    return res.status(500).json
+  }
 }
 module.exports = {
   getHomePage: getHomePage,

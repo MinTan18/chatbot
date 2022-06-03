@@ -619,5 +619,6 @@ module.exports = {
   handleFindBooks: handleFindBooks,
   goBA: goBA,
   goBA1ST:goBA1ST,
+  callSendAPI: callSendAPI,
 
 };
