@@ -509,9 +509,10 @@ let getBA1STTemplate = () => {
             buttons: [
               {
                 type: "web_url",
-            title: "VNU Library System",
-            url: "https://www.youtube.com/",
-            webview_height_ratio: "full",
+                title: "VNU Library System",
+                url: "https://www.youtube.com/",
+                webview_height_ratio: "full",
+                messenger_extensions: true
               },
               {
                 type: "postback",
