@@ -297,7 +297,9 @@ let handlePostOrderBook = async (req, res) => {
     });
   } catch (e) {
     console.log(`error post`, e);
-    return res.status(500).json
+    return res.status(500).json({
+      message: 'Server error'
+    })
   }
 }
 module.exports = {
