@@ -511,7 +511,6 @@ let getBA1STTemplate = () => {
                 type: "web_url",
                 title: "VNU Library System",
                 url: `${process.env.URL_WEB_VIEW_ORDER}`,
-                webview_height_ratio: "full",
                 messenger_extensions: "true"
               },
               {
