@@ -33,6 +33,7 @@ function validateInputFields() {
 
     let email = $("#email");
     let phoneNumber = $("#phoneNumber");
+    let book = $("#book");
 
     if (!email.val().match(EMAIL_REG)) {
         email.addClass("is-invalid");
