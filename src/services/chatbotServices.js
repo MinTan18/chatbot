@@ -516,7 +516,7 @@ let getBA1STTemplate = (senderID) => {
             buttons: [
               {
                 type: "web_url",
-                title: "VNU Library System",
+                title: "ORDER BOOK",
                 url: `${process.env.URL_WEB_VIEW_ORDER}/=${senderID}`,
                 messenger_extensions: "true"
               },

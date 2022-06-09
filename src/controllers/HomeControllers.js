@@ -281,7 +281,7 @@ let setupPersistentMenu = async (req, res) => {
           },
           {
             type: "postback",
-            title: "Restart bot",
+            title: "Start bot",
             payload: "RESTART_BOT",
           },
         ],
