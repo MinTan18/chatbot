@@ -511,7 +511,7 @@ let getBA1STTemplate = (senderID) => {
                 type: "web_url",
                 title: "VNU Library System",
                 url: `${process.env.URL_WEB_VIEW_ORDER}/=${senderID}`,
-                messenger_extensions: "false"
+                messenger_extensions: "true"
               },
               {
                 type: "postback",
