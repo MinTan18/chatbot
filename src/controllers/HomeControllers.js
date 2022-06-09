@@ -271,7 +271,7 @@ let setupPersistentMenu = async (req, res) => {
 };
 
 let handleOrderBook = (req, res) => {
-  let senderId = req.initParams.senderId;
+  let senderId = req.params.senderId;
   return res.render('reserve-book.ejs', {
     senderId: senderId
   });
