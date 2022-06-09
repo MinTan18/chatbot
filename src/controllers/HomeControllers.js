@@ -41,7 +41,7 @@ await sheet.addRow(
   {
       "Name": data.username,
       "Email": data.email,
-      "Phone number": data.phoneNumber,
+      "Phone number": `'` + data.phoneNumber,
       "Time": formatedDate,
       "Book": data.book,
   });
