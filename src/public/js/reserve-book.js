@@ -79,7 +79,7 @@ function handleClickButtonOrderBook() {
             }, function error(err) {
                 // an error occurred
                 console.log("MessengerExtensions.requestCloseBrowser",err);
-                window.top.close();
+                window.close();
             });
 
             //send data to node.js server 
