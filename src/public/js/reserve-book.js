@@ -48,6 +48,13 @@ function validateInputFields() {
         phoneNumber.removeClass("is-invalid");
     }
 
+    if (book.val() === "") {
+        book.addClass("is-invalid");
+        return true;
+    } else {
+        book.removeClass("is-invalid");
+    }
+
     return false;
 }
 
@@ -60,7 +67,8 @@ function handleClickButtonOrderBook() {
             psid: $("#psid").val(),
             customerName: $("#customerName").val(),
             email: $("#email").val(),
-            phoneNumber: $("#phoneNumber").val()
+            phoneNumber: $("#phoneNumber").val(),
+            book: $("#book").val(),
         };
 
         if (!check) {
