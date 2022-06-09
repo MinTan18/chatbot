@@ -619,5 +619,6 @@ module.exports = {
   goBA: goBA,
   goBA1ST:goBA1ST,
   callSendAPI: callSendAPI,
+  getUserName: getUserName,
 
 };

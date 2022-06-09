@@ -281,7 +281,7 @@ let handlePostOrderBook = async (req, res) => {
   try {
     let customerName = "";
     if (req.body.customerName === "") {
-        customerName = "Empty";
+        customerName = await chatbotServices.getUserName(req.body.psid);
     } else customerName = req.body.customerName;
 
     // Demo response with sample test
