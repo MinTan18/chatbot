@@ -78,7 +78,8 @@ function handleClickButtonOrderBook() {
                 // webview closed
             }, function error(err) {
                 // an error occurred
-                console.log(err);
+                console.log("MessengerExtensions.requestCloseBrowser",err);
+                window.top.close();
             });
 
             //send data to node.js server 
