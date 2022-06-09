@@ -3,6 +3,7 @@ import req from "express/lib/request";
 import res, { send } from "express/lib/response";
 import request from "request";
 import chatbotServices from "../services/chatbotServices";
+import moment from "moment";
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 
@@ -14,6 +15,13 @@ const GOOGLE_PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY;
 //process.env.NAME.VARIABLES
 
 let writeDataToGoogleSheet = async(data) => {
+
+        let currentDate = new Date();
+
+        const format = "HH:mm DD/MM/YYYY"
+
+        let formatedDate = moment(currentDate).format(format);
+
   // Initialize the sheet - doc ID is the long id in the sheets URL
 const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -27,6 +35,16 @@ await doc.useServiceAccountAuth({
 
 await doc.loadInfo(); // loads document properties and worksheets
 const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+
+// append rows
+await sheet.addRow(
+  {
+      "Name": data.username,
+      "Email": data.email,
+      "Phone number": data.phoneNumber,
+      "Time": formatedDate,
+      "Book": data.book,
+  });
 
 }
 let getHomePage = (req, res) => {
@@ -301,9 +319,18 @@ let handleOrderBook = (req, res) => {
 
 let handlePostOrderBook = async (req, res) => {
   try {
+    let username = await chatbotServices.getUserName(req.body.psid);
+    // write data to excel
+    let data = {
+      username : username,
+      email: req.body.email,
+      phoneNumber: req.body.phoneNumber,
+      book: req.body.book,
+    }
+    await writeDataToGoogleSheet(data);
     let customerName = "";
     if (req.body.customerName === "") {
-        customerName = await chatbotServices.getUserName(req.body.psid);
+        customerName = username
     } else customerName = req.body.customerName;
 
     // Demo response with sample test
@@ -313,6 +340,7 @@ let handlePostOrderBook = async (req, res) => {
       \nCustomer name: ${customerName}
       \nEmail address: ${req.body.email}
       \nPhone number: ${req.body.phoneNumber}
+      \nBook: ${req.body.book}
       `
     };
 
